@@ -1,9 +1,12 @@
 #!/usr/bin/env ruby
 
+lib = File.join(File.dirname(__FILE__), '..', 'lib')
+$LOAD_PATH.unshift(lib)
+
 require 'rubygems'
 require 'commander/import'
 
-require './lib/githubbackup'
+require 'githubbackup'
 
 program :name, 'backup'
 program :version, '0.0.1'
