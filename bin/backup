@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'commander/import'
+
+require './lib/githubbackup'
+
+program :name, 'backup'
+program :version, '0.0.1'
+program :description, 'Backs things up'
+
+command :github do |c|
+  c.syntax = 'backup runbackup [options]'
+  c.summary = 'Backup of Github repositories'
+  c.description = 'Backs up specific github repo'
+  c.example 'description', 'command example'
+  c.option '--some-switch', 'Some switch that does something'
+  c.action do |args, options|
+    bk = Githubbackup.new
+    bk.github_backup
+  end
+end
+
